@@ -21,7 +21,7 @@ stages:
           type: script
         - name: go_test
           spec:
-            run: go test -v ./...
+            run: go hawks
           type: script
     type: ci
 version: 1
