@@ -3,6 +3,10 @@ stages:
   - name: build1
     spec:
       steps:
+        - name: Script
+          spec:
+            run: test1
+          type: script
         - name: go_build
           spec:
             run: go build
