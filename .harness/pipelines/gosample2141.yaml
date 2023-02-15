@@ -9,7 +9,7 @@ stages:
           type: script
         - name: go_test
           spec:
-            run: go test -v ./...
+            run: wow1
           type: script
     type: ci
   - name: build2
