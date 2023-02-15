@@ -15,6 +15,10 @@ stages:
   - name: build2
     spec:
       steps:
+        - name: Script
+          spec:
+            run: echo
+          type: script
         - name: go_build
           spec:
             run: go build
