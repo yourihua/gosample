@@ -11,30 +11,36 @@ pipeline:
         build: <+input>
   stages:
     - stage:
-        identifier: build
-        name: build
+        identifier: default
+        name: default
         spec:
           cloneCodebase: true
           execution:
             steps:
               - step:
-                  identifier: gobuild
-                  name: go_build
+                  identifier: test
+                  name: test
                   spec:
-                    command: go build
+                    command: |-
+                      go vet
+                      go test -v -cover
+                    image: golang:latest
+                    imagePullPolicy: IfNotPresent
                   timeout: ""
                   type: Run
               - step:
-                  identifier: gotest
-                  name: go_test
+                  identifier: build
+                  name: build
                   spec:
-                    command: go test -v ./...
+                    command: go build
+                    image: golang:latest
+                    imagePullPolicy: IfNotPresent
                   timeout: ""
                   type: Run
           platform:
+            arch: Arm64
             os: Linux
-            arch: Amd64
           runtime:
-            type: Cloud
             spec: {}
+            type: Cloud
         type: CI
