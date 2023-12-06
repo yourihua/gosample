@@ -6,9 +6,9 @@ pipeline:
   properties:
     ci:
       codebase:
+        connectorRef: pranavgithub
+        repoName: gosample
         build: <+input>
-        connectorRef: account.pranavgithub1
-        repoName: rustd/gosample
   stages:
     - stage:
         identifier: build
@@ -32,9 +32,9 @@ pipeline:
                   timeout: ""
                   type: Run
           platform:
-            arch: Amd64
             os: Linux
+            arch: Amd64
           runtime:
-            spec: {}
             type: Cloud
+            spec: {}
         type: CI
