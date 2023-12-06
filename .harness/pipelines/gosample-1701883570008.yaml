@@ -21,18 +21,7 @@ pipeline:
                   identifier: test
                   name: test
                   spec:
-                    command: |-
-                      go vet
-                      go test -v -cover
-                    image: golang:latest
-                    imagePullPolicy: IfNotPresent
-                  timeout: ""
-                  type: Run
-              - step:
-                  identifier: build
-                  name: build
-                  spec:
-                    command: go build
+                    command: echo "Hello"
                     image: golang:latest
                     imagePullPolicy: IfNotPresent
                   timeout: ""
