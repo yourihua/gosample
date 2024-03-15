@@ -3,37 +3,34 @@ pipeline:
   identifier: gosample
   projectIdentifier: My_Project
   orgIdentifier: default
-  stages:
-    - stage:
-        identifier: default
-        name: default
-        spec:
-          cloneCodebase: true
-          execution:
-            steps:
-              - step:
-                  identifier: test
-                  name: test
-                  spec:
-                    command: echo "Hello"
-                    image: golang:latest
-                    imagePullPolicy: IfNotPresent
-                  timeout: ""
-                  type: Run
-          platform:
-            os: Linux
-            arch: Amd64
-          runtime:
-            type: Docker
-            spec: {}
-          caching:
-            enabled: false
-            paths: []
-        type: CI
-        description: ""
   properties:
     ci:
       codebase:
         connectorRef: MyGithub
         repoName: https://github.com/yourihua/gosample
         build: <+input>
+  stages:
+    - stage:
+        name: Build
+        identifier: Build
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          platform:
+            os: MacOS
+            arch: Arm64
+          runtime:
+            type: Docker
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  identifier: build_go_app
+                  name: Build Go App
+                  spec:
+                    command: |-
+                      echo "Welcome to Harness CI"
+                      go build
+                      go test
