@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_yourihua_gosample_1710817484399-push-trigger-input-set
+  identifier: Build_yourihua_gosample_1710817484399pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: MyProject
+  pipeline:
+    identifier: Build_yourihua_gosample_1710817484399
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
