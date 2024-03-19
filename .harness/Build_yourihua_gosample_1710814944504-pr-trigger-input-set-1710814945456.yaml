@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_yourihua_gosample_1710814944504-pr-trigger-input-set
+  identifier: Build_yourihua_gosample_1710814944504prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: MyProject
+  pipeline:
+    identifier: Build_yourihua_gosample_1710814944504
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
